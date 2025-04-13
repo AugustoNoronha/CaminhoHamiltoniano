@@ -111,10 +111,10 @@ python main.py
 ### Análise da complexidade assintótica de tempo
 
 1. **Complexidade temporal:**  
-   A complexidade do algoritmo é **O(V!)**, onde V é o número de vértices.
+   A complexidade do algoritmo é **O(n!)**, onde n é o número de vértices.
 
 2. **Método de determinação:**  
-   - Utilizamos a **contagem de operações**.  
+   - Foi utilizado a **contagem de operações**.  
    - A função `encontrar_caminho_hamiltoniano_util` tenta todos os possíveis caminhos, o que gera uma árvore de recursão com ramificações de ordem fatorial, já que cada posição pode ter múltiplas possibilidades dependendo do grafo.
 
 ---
@@ -123,26 +123,21 @@ python main.py
 
 - **Aplicabilidade:**  
   Não é possível aplicar o Teorema Mestre neste caso.
-
-- **Justificativa:**  
-  O Teorema Mestre é utilizado para resolver recorrências do tipo:
-  `T(n) = aT(n/b) + f(n)`  
-  Neste caso, a recursão não é baseada em divisão do problema em subproblemas menores com tamanho proporcional. O número de possibilidades depende das combinações de vértices, não da divisão de dados.
-
+  
 ---
 
 ### Análise dos casos de complexidade
 
 1. **Melhor caso:**  
    - Um caminho Hamiltoniano é encontrado logo nas primeiras tentativas.  
-   - Complexidade ainda é O(V!), mas na prática o tempo é reduzido pela poda.
+   - Complexidade é O(n!) ( o tempo é redusido pelas podas )
 
 2. **Caso médio:**  
-   - A média das execuções em diferentes grafos gera tentativa e erro com backtracking, ainda com complexidade O(V!).
+   - A média das execuções em diferentes grafos gera tentativa e erro com backtracking, ainda com complexidade O(n!).
 
 3. **Pior caso:**  
    - Não existe caminho Hamiltoniano, e o algoritmo tenta **todas as combinações possíveis**.  
-   - Tempo máximo de execução: **O(V!)**.
+   - Tempo máximo de execução: **O(n!)** ( porém neste caso o tempo é maior do que nos 2 casos anteriores ).
 
 4. **Impacto no desempenho:**  
    - A variação entre os casos pode impactar severamente o tempo de execução. O algoritmo não possui otimizações para evitar repetir estados ou reduzir a árvore de busca.
